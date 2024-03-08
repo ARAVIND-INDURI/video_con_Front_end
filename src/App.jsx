@@ -1,16 +1,18 @@
 import { useState } from 'react'
-import Register from '../public/components/register'
 import './App.css'
-
+import axios from "axios"
 function App() {
   const [count, setCount] = useState(0)
 
   return (
     <>
-    <Register/>
+    <h1 className="text-3xl font-bold underline">
+      Hello world!
+    </h1>
     </>
   )
 }
+
 
 
 export default App
