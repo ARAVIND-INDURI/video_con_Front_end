@@ -1,51 +1,30 @@
+
 import React, { useState } from 'react';
 
-import axios from 'axios';
-
-function Register() {
-  const [username, setUsername] = useState('');
+const RegisterForm = () => {
+  const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
-
-    axios.post('/api/v1/users/register', {
-      username,
-      password,
-    })
-     .then((response) => {
-        console.log(response);
-      })
-     .catch((error) => {
-        console.log(error);
-      });
+  const handleLogin = () => {
+    // Implement your authentication logic here
+    const emailRes = document.getElementById('email')
+    const paswordRes = document.getElementById('password')
+    emailRes.value = ''
+    paswordRes.value = ''
+    console.log('email:', email);
+    console.log('Password:', password);
   };
 
   return (
-    <div className="App">
-      <form onSubmit={handleSubmit}>
-        <div>
-          <label htmlFor="username">Username:</label>
-          <input
-            type="text"
-            id="username"
-            value={username}
-            onChange={(event) => setUsername(event.target.value)}
-          />
-        </div>
-        <div>
-          <label htmlFor="password">Password:</label>
-          <input
-            type="password"
-            id="password"
-            value={password}
-            onChange={(event) => setPassword(event.target.value)}
-          />
-        </div>
-        <button type="submit">Submit</button>
-      </form>
+    <div>
+      <div className='flex flex-col text-white gap-6 justify-center items-center border-2 w-96 h-96 rounded-lg'>
+        <h2 className='text-3xl'>Sign Up</h2>
+        <input type="text" id='email' placeholder="  Enter your Email" className=' h-10 text-black rounded-lg' value={email} onChange={(e)=>setEmail(e.target.value)} />
+        <input type="password" id='password' placeholder="  Enter Your Password" className='h-10 text-black rounded-lg' value={password} onChange={(e)=>setPassword(e.target.value)} />
+        <button onClick={handleLogin} className='bg-transparent hover:bg-red-500 text-red-700 font-semibold hover:text-white py-2 px-4 border border-red-500 hover:border-transparent rounded-lg'>Sign up</button>
+      </div>
     </div>
   );
-}
+};
 
-export default Register;
+export default RegisterForm;
