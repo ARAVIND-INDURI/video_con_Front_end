@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { Parallax } from 'react-parallax';
 import clsx from 'clsx'
 import Logo from "../assets/images/logo.jsx"
-
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 import { SiGmail } from "react-icons/si";
 import { AiOutlineMenu } from "react-icons/ai";
@@ -11,9 +10,9 @@ import LoginForm from "./login.jsx";
 import RegisterForm from "./register.jsx";
 const Home = () => {
   const [isSideBarOpen, setOpen] = useState(false)
-  const [Toggle,setToggle] = useState(false)
-  const [isLogin, setLogin] = useState(true)
-  function handleToggle(toggle){
+  const [Toggle, setToggle] = useState(false)
+  const [isLogin, setLogin] = useState(false)
+  function handleToggle(toggle) {
     toggle = !toggle
     setToggle(toggle)
     setLogin(toggle)
@@ -58,7 +57,7 @@ const Home = () => {
         </Parallax>
         <div className="bg-[#000] text-white text-2xl font-sans">
           <label className="bold p-4 ">About : </label>
-          <p className="break-words lg:text-2xl sm:text-2xl text-sm p-4">
+          <p className="break-words text-2xl sm:text-2xl text-sm font-serif p-4">
             Upload Your Videos  : Easily upload your videos, whether they’re short films, vlogs, animations, or music videos.
             <br />
             Our user-friendly interface ensures a seamless experience.
@@ -72,10 +71,12 @@ const Home = () => {
         </div>
         <Parallax bgImage="https://i.postimg.cc/fbGcgpVT/palm-2445107-960-720.jpg" alt="img2" strength={900} className="flex justify-center items-center w-auto h-lvh bg-cover" >
           <div>
-            <div className="flex flex-row text-white gap-x-5 justify-center items-center mb-10">
-            <span className="text-4xl">Sign up</span>
-            <button onClick={()=> handleToggle(Toggle) } className="w-32 h-8 border-2 rounded-lg">Toggle</button>
-          <span className="text-4xl">Sign in</span>
+            <div className="flex flex-row text-white gap-x-5 font-sans justify-center items-center mb-10">
+              <span className="text-4xl font-Oswald">Sign up</span>
+              <button onClick={() => handleToggle(Toggle)} className="w-32 h-8 border-2 rounded-lg ">Toggle
+              
+              </button>
+              <span className="text-4xl font-Oswald">Sign in</span>
             </div>
             {
               isLogin ? <LoginForm /> : <RegisterForm />
