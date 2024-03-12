@@ -14,8 +14,7 @@ const RegisterForm = () => {
   const [userDetails, setUserDetails] = useState(initialDetails)
   const handleRegistration = async () => {
     let validEmail = validate(details.email);
-    if(!validEmail)
-    {
+    if (!validEmail) {
       console.log("Enter valid email")
     }
     try {
@@ -31,10 +30,10 @@ const RegisterForm = () => {
       console.log(formData)
       if (avatar) formData.append('avatar', avatar);
       if (coverImage) formData.append('coverImage', coverImage);
-  
 
-      
-      const response = await axios.post("/api/v1/users/register", formData,{
+
+
+      const response = await axios.post("/api/v1/users/register", formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
         },
